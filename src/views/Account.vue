@@ -8,7 +8,8 @@
         v-for="(stock, keyName) in acquiredStocks"
         :key="keyName"
         :stockName="keyName"
-        :stockValue="stocks[0].marketValue"
+        :stockValue="stocks[keyName].marketValue"
+        inputPlaceholder="Sell stocks"
       >
         <template slot="button">{{buttonName}}</template>
       </app-single-stock>

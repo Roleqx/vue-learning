@@ -14,7 +14,7 @@
           min="0"
           max="10000"
           v-model.number="stocksToBuy"
-          placeholder="Stocks to buy"
+          :placeholder="inputPlaceholder"
         >
         <button
           class="btn btn-dark ml-auto"
@@ -37,7 +37,9 @@ import { mapActions } from 'vuex'
 export default {
   props: {
     stockName: String,
-    stockValue: Number
+    stockValue: Number,
+    inputPlaceholder: String,
+    actionName: String
   },
   data() {
     return {

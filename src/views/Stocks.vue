@@ -4,13 +4,16 @@
       <h1>Stocks:</h1>
 
       <app-single-stock
-        v-for="(stock) in stocks"
+        v-for="stock in stocks"
         :key="stock.id"
         :stockName="stock.name"
         :stockValue="stock.marketValue"
+        inputPlaceholder="Stocks to buy"
+        actionName="buy"
       >
         <template slot="button">{{buttonName}}</template>
       </app-single-stock>
+
     </div>
   </div>
 </template>
@@ -38,9 +41,9 @@ export default {
     })
   },
   watch: {
-    stocks(stocks) {
-      this.stocks = stocks
-    }
+    // stocks(stocks) {
+    //   this.stocks = stocks
+    // }
   },
   created() {
     this.updateValues()

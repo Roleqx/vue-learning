@@ -5,12 +5,12 @@ import { rand } from '@/store/storeHelpers'
 // SOCK LIST STORE
 export default {
   state: {
-    stocks: [
-      { id: 1, name: 'BMW', marketValue: 0 },
-      { id: 2, name: 'Mercedes', marketValue: 0 },
-      { id: 3, name: 'Audi', marketValue: 0 },
-      { id: 4, name: 'Volkswagen', marketValue: 0 }
-    ],
+    stocks: {
+      BMW: { id: 1, name: 'BMW', marketValue: 0 },
+      Mercedes: { id: 2, name: 'Mercedes', marketValue: 0 },
+      Audi: { id: 3, name: 'Audi', marketValue: 0 },
+      Volkswagen: { id: 4, name: 'Volkswagen', marketValue: 0 }
+    },
     acquiredStocks: {}
   },
 
@@ -21,9 +21,13 @@ export default {
 
   mutations: {
     updateMarketValues(state) {
-      state.stocks.forEach(stock => {
-        stock.marketValue = rand(100, 500)
-      })
+        // state.stocks.forEach((stock, key) => {
+        //   stock.marketValue = rand(100, 500)
+        // })
+        for (let key in state.stocks) {
+          // Vue.set(state.stocks, state.stocks[key].marketValue, rand(100, 500))
+          state.stocks[key].marketValue = rand(100, 500)
+        }
     },
     buyStocks(state, boughtStock) {
       // boughtStock properties list : name, NumberOfstocksTobuy, StockValue
