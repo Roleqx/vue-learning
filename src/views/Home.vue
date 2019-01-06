@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="row justify-content-center">
+    <div class="col-sm-10 shadow-sm bg-light">
+      <h1>Welcome to StockTrader</h1>
+      <p>a place where you can buy and sell market stocks.</p>
+      <p>Your current Balance : <strong>{{balance}}$</strong></p>
+			{{acquired}} - <button class="btn btn-dark" @click="openModal">Test</button>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapGetters } from 'vuex'
+import $ from 'jquery'
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+  computed: {
+    ...mapGetters({
+			balance: 'getBalance',
+			acquired: 'getAcquiredStocks'
+    })
+	},
+	methods: {
+		openModal() {
+			$('#myModal').modal()
+		}
+	}
 }
 </script>
+
+<style scoped>
+</style>

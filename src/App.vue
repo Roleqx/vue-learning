@@ -1,31 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <component :is="modalTrigger">
+      <app-modal></app-modal>
+    </component>
+    <app-header></app-header>
+    <div class="container-fluid">
+      <transition name="route" mode="out-in" type="transition">
+        <keep-alive>
+         <router-view></router-view>
+        </keep-alive>
+      </transition>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+// loading components
+import Header from '@/components/Header.vue'
+import Modal from '@/components/Modal.vue'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+export default {
+  components: {
+    appHeader: Header,
+    appModal: Modal
+  },
+  data() {
+    return {
+      modalTrigger: false   
+    }
+  }
 }
+</script>
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+<style scoped>
+.route-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.route-enter-active { 
+  transition: all .15s;
+}
+.route-leave-active {
+  transform: translateY(10px);
+  opacity:0;
+  transition: all .15s;
 }
 </style>
