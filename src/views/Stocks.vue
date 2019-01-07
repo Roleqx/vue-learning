@@ -2,7 +2,6 @@
   <div class="row justify-content-center">
     <div class="col-sm-10">
       <h1>Stocks:</h1>
-
       <app-single-stock
         v-for="stock in stocks"
         :key="stock.id"

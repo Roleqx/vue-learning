@@ -11,7 +11,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import $ from 'jquery'
 
 export default {
   computed: {
@@ -22,7 +21,7 @@ export default {
 	},
 	methods: {
 		openModal() {
-			$('#myModal').modal()
+			// $('#myModal').modal()
 		}
 	}
 }

@@ -17,6 +17,9 @@ export default new Vuex.Store({
   mutations: {
      deduct(state, howMuch) {
         state.balance -= howMuch
+     },
+     add(state, howMuch) {
+       state.balance += howMuch
      } 
   },
   actions: {

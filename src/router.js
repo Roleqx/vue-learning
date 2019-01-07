@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home.vue'
 import Account from '@/views/Account.vue'
 import Stocks from '@/views/Stocks.vue'
+import NotFound from '@/components/errors/PageNotFound.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
       path: '/stocks',
       component: Stocks,
       name: 'stocksRoute'
+    },
+    {
+      path: '*',
+      component: NotFound
+
     }
   ]
 })

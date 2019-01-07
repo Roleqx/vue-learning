@@ -1,8 +1,5 @@
 <template>
   <div>
-    <component :is="modalTrigger">
-      <app-modal></app-modal>
-    </component>
     <app-header></app-header>
     <div class="container-fluid">
       <transition name="route" mode="out-in" type="transition">
@@ -15,14 +12,13 @@
 </template>
 
 <script>
+
 // loading components
 import Header from '@/components/Header.vue'
-import Modal from '@/components/Modal.vue'
 
 export default {
   components: {
-    appHeader: Header,
-    appModal: Modal
+    appHeader: Header
   },
   data() {
     return {
